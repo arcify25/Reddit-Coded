@@ -57,7 +57,7 @@ export function usePosts() {
         reactionMap[postId][emoji] = (reactionMap[postId][emoji] || 0) + 1;
 
         // Track user's own reactions
-        if (reaction.fingerprint === fingerprint) {
+        if (reaction.user_fingerprint === fingerprint) {
           if (!userReactionMap[postId]) {
             userReactionMap[postId] = [];
           }
@@ -215,7 +215,7 @@ export function usePosts() {
         .delete()
         .eq("post_id", postId)
         .eq("emoji", emoji)
-        .eq("fingerprint", fingerprint);
+        .eq("user_fingerprint", fingerprint);
 
       if (error) throw error;
       return true;

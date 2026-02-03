@@ -41,7 +41,7 @@ export function TrendingSection({ posts, reactions }: TrendingSectionProps) {
               <p className="text-xs text-muted-foreground">Most popular thoughts</p>
             </div>
           </div>
-          
+
           {/* Navigation arrows */}
           <div className="flex gap-2">
             <Button
@@ -67,16 +67,16 @@ export function TrendingSection({ posts, reactions }: TrendingSectionProps) {
         <div className="relative">
           {/* Left fade */}
           <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background/80 to-transparent z-10 pointer-events-none rounded-l-xl" />
-          
+
           {/* Right fade */}
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background/80 to-transparent z-10 pointer-events-none rounded-r-xl" />
 
           {/* Cards container */}
           <div
             ref={scrollRef}
-            className="flex gap-4 overflow-x-auto pb-2 px-2 scroll-smooth"
-            style={{ 
-              scrollbarWidth: 'none', 
+            className="flex gap-4 overflow-x-auto overflow-y-visible pb-2 px-2 scroll-smooth"
+            style={{
+              scrollbarWidth: 'none',
               msOverflowStyle: 'none',
               WebkitOverflowScrolling: 'touch'
             }}
@@ -85,12 +85,12 @@ export function TrendingSection({ posts, reactions }: TrendingSectionProps) {
               const postReactions = reactions[post.id] || {};
               const totalReactions = Object.values(postReactions).reduce((sum: number, count: number) => sum + count, 0);
               const isTopThree = index < 3;
-              
+
               return (
                 <div
                   key={post.id}
                   className={`
-                    flex-shrink-0 w-64 p-5 rounded-2xl bg-card border border-border/50
+                    relative flex-shrink-0 w-64 p-5 rounded-2xl bg-card border border-border/50
                     transition-all duration-300 ease-out cursor-pointer group
                     hover:bg-card/80 hover:-translate-y-2 hover:shadow-xl
                     ${isTopThree ? 'ring-1 ring-primary/20 shadow-lg shadow-primary/5' : 'shadow-md'}
@@ -101,10 +101,10 @@ export function TrendingSection({ posts, reactions }: TrendingSectionProps) {
                 >
                   {/* Rank badge */}
                   <div className={`
-                    absolute -top-2.5 -left-2.5 w-7 h-7 rounded-full flex items-center justify-center 
+                    absolute -top-3.6 -left-2.5 w-7 h-7 rounded-full flex items-center justify-center 
                     text-sm font-bold shadow-md transition-transform duration-300 group-hover:scale-110
-                    ${isTopThree 
-                      ? 'bg-gradient-to-br from-primary to-accent text-primary-foreground' 
+                    z-20 ${isTopThree
+                      ? 'bg-gradient-to-br from-primary to-accent text-primary-foreground'
                       : 'bg-secondary text-foreground border border-border'
                     }
                   `}>
@@ -112,7 +112,7 @@ export function TrendingSection({ posts, reactions }: TrendingSectionProps) {
                   </div>
 
                   {/* Category tag */}
-                  <div className="flex items-center gap-1.5 mb-3">
+                  <div className="flex items-center gap-1.5 mb-2 ">
                     <span className="text-base">{CATEGORY_EMOJIS[post.category]}</span>
                     <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
                       {post.category}
@@ -133,9 +133,9 @@ export function TrendingSection({ posts, reactions }: TrendingSectionProps) {
                       </span>
                     </div>
                     <span className="text-xs text-muted-foreground/70">
-                      {new Date(post.created_at).toLocaleDateString('en-US', { 
-                        month: 'short', 
-                        day: 'numeric' 
+                      {new Date(post.created_at).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric'
                       })}
                     </span>
                   </div>
