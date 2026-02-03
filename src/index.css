@@ -1,88 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cork board / cream background */
+    --background: 35 30% 94%;
+    --foreground: 25 20% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 45 40% 96%;
+    --card-foreground: 25 20% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 35 30% 97%;
+    --popover-foreground: 25 20% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Warm coral primary */
+    --primary: 12 76% 61%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft peach secondary */
+    --secondary: 28 50% 92%;
+    --secondary-foreground: 25 20% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 35 20% 90%;
+    --muted-foreground: 25 15% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 45% 85%;
+    --accent-foreground: 180 40% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 20% 85%;
+    --input: 30 25% 88%;
+    --ring: 12 76% 61%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Sticky note pastel colors */
+    --sticky-yellow: 48 100% 85%;
+    --sticky-pink: 340 80% 88%;
+    --sticky-blue: 200 80% 88%;
+    --sticky-green: 140 60% 85%;
+    --sticky-purple: 270 60% 88%;
+    --sticky-orange: 28 95% 85%;
+    --sticky-mint: 165 60% 88%;
+    --sticky-peach: 15 90% 90%;
+
+    /* Category badge colors */
+    --badge-humor: 48 95% 60%;
+    --badge-confession: 340 75% 65%;
+    --badge-idea: 200 80% 55%;
+    --badge-motivation: 140 70% 45%;
+
+    /* Shadows */
+    --shadow-sticky: 0 4px 20px -2px hsl(25 30% 30% / 0.15), 0 2px 8px -2px hsl(25 30% 30% / 0.1);
+    --shadow-sticky-hover: 0 12px 32px -4px hsl(25 30% 30% / 0.2), 0 6px 16px -4px hsl(25 30% 30% / 0.15);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 25 15% 12%;
+    --foreground: 35 30% 94%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 25 18% 16%;
+    --card-foreground: 35 30% 94%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 25 15% 14%;
+    --popover-foreground: 35 30% 94%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 12 76% 61%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 25 20% 22%;
+    --secondary-foreground: 35 30% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 25 15% 20%;
+    --muted-foreground: 35 20% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 180 30% 25%;
+    --accent-foreground: 180 40% 85%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 25 15% 25%;
+    --input: 25 18% 22%;
+    --ring: 12 76% 55%;
+
+    /* Dark mode sticky colors - slightly muted */
+    --sticky-yellow: 48 70% 35%;
+    --sticky-pink: 340 50% 35%;
+    --sticky-blue: 200 50% 35%;
+    --sticky-green: 140 40% 30%;
+    --sticky-purple: 270 40% 35%;
+    --sticky-orange: 28 65% 35%;
+    --sticky-mint: 165 40% 30%;
+    --sticky-peach: 15 60% 35%;
+
+    --shadow-sticky: 0 4px 20px -2px hsl(0 0% 0% / 0.4), 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-sticky-hover: 0 12px 32px -4px hsl(0 0% 0% / 0.5), 0 6px 16px -4px hsl(0 0% 0% / 0.4);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +128,154 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(var(--sticky-yellow) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--sticky-pink) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 60% 80%, hsl(var(--sticky-blue) / 0.1) 0%, transparent 50%);
   }
+}
+
+@layer components {
+  /* Sticky note base styles */
+  .sticky-note {
+    @apply relative rounded-sm transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-sticky);
+    transform-origin: center top;
+  }
+
+  .sticky-note:hover {
+    box-shadow: var(--shadow-sticky-hover);
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  /* Sticky note colors */
+  .sticky-yellow { background-color: hsl(var(--sticky-yellow)); }
+  .sticky-pink { background-color: hsl(var(--sticky-pink)); }
+  .sticky-blue { background-color: hsl(var(--sticky-blue)); }
+  .sticky-green { background-color: hsl(var(--sticky-green)); }
+  .sticky-purple { background-color: hsl(var(--sticky-purple)); }
+  .sticky-orange { background-color: hsl(var(--sticky-orange)); }
+  .sticky-mint { background-color: hsl(var(--sticky-mint)); }
+  .sticky-peach { background-color: hsl(var(--sticky-peach)); }
+
+  /* Category badges */
+  .badge-humor { 
+    background-color: hsl(var(--badge-humor)); 
+    color: hsl(25 30% 20%);
+  }
+  .badge-confession { 
+    background-color: hsl(var(--badge-confession)); 
+    color: hsl(0 0% 100%);
+  }
+  .badge-idea { 
+    background-color: hsl(var(--badge-idea)); 
+    color: hsl(0 0% 100%);
+  }
+  .badge-motivation { 
+    background-color: hsl(var(--badge-motivation)); 
+    color: hsl(0 0% 100%);
+  }
+
+  /* Like button animation */
+  .like-button {
+    @apply transition-transform duration-200;
+  }
+
+  .like-button:active {
+    animation: heart-pop 0.3s ease-out;
+  }
+
+  @keyframes heart-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  /* Masonry layout */
+  .masonry-grid {
+    column-gap: 1.25rem;
+    column-count: 1;
+  }
+
+  @media (min-width: 640px) {
+    .masonry-grid {
+      column-count: 2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .masonry-grid {
+      column-count: 3;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .masonry-grid {
+      column-count: 4;
+    }
+  }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Pin effect */
+  .pin {
+    @apply absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary shadow-md z-10;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(12 70% 50%) 100%);
+  }
+
+  .pin::after {
+    content: '';
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white/60;
+  }
+}
+
+@layer utilities {
+  .font-handwritten {
+    font-family: 'Caveat', cursive;
+  }
+
+  .font-body {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.4s ease-out forwards;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out forwards;
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.2s; }
 }
